@@ -5,3 +5,5 @@
 <p align=center>
   Placeholder text for the Document.
 </p>
+
+<kbd>[**Button Text**](https://youtube.com)</kbd>
