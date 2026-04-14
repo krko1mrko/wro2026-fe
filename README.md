@@ -143,16 +143,6 @@ g++ *.cpp -fpermissive 'pkg-config --cflags --libs opencv4' -lOpenCL -O3 -o main
 
 ---
 
-## Uploading and Running the Code
-
-### Main Processor
-
-The compiled program is executed directly on the onboard computer:
-
-```bash
-./main
-```
-
 ### Microcontroller (STM32)
 
 1. Connect the STM32 board via USB  
