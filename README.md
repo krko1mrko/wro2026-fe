@@ -1,4 +1,4 @@
-<br><br><h1 align=center> Team Ouroboros – WRO 2026 Future Engineers<br><br>
+<br><h1 align=center> Team Ouroboros – WRO 2026 Future Engineers<br><br>
 
 ## Robot Overview
 
@@ -113,30 +113,30 @@ This separation ensures stable real-time performance.
 
 ### Dependencies
 
-- Ubuntu operating system: ([LinkText]https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
-- C++ compiler (g++) ([LinkText]https://gist.github.com/hugoledoux/2e91ed3efbfa8ca5da1ea27e522d2b34)
+- Ubuntu operating system: (https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
+- C++ compiler (g++) (https://gist.github.com/hugoledoux/2e91ed3efbfa8ca5da1ea27e522d2b34)
 - OpenCL ICD:
-    1. OpenCL: [LinkText]https://github.com/KhronosGroup/OpenCL-Guide/blob/main/chapters/getting_started_linux.md
-    2. Driver: [LinkText]https://support.zivid.com/en/latest/camera/getting-started/software-installation/gpu/install-opencl-drivers-ubuntu.html
-- OpenCV Library: ([LinkText]https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html)
-- Arduino IDE  ([LinkText]https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE)
-- STM32duino ([LinkText]https://github.com/stm32duino#welcome-to-the-stm32duino-open-source-community)
-- SCServo Library ([LinkText]https://github.com/adityakamath/SCServo_Linux?tab=readme-ov-file#scservo_linux)
-- Modified SimonK firmware for the ESC (Depending on your ESC choice, the firmware may vary) ([LinkText]https://github.com/sim-/tgy)
+    - OpenCL: https://github.com/KhronosGroup/OpenCL-Guide/blob/main/chapters/getting_started_linux.md
+    - Driver: https://support.zivid.com/en/latest/camera/getting-started/software-installation/gpu/install-opencl-drivers-ubuntu.html
+- OpenCV Library: (https://docs.opencv.org/3.4/d7/d9f/tutorial_linux_install.html)
+- Arduino IDE  (https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE)
+- STM32duino (https://github.com/stm32duino#welcome-to-the-stm32duino-open-source-community)
+- SCServo Library (https://github.com/adityakamath/SCServo_Linux?tab=readme-ov-file#scservo_linux)
+- Modified SimonK firmware for the ESC (Depending on your ESC choice, the firmware may vary) (https://github.com/sim-/tgy)
 
 ### Steps
 
 1. Clone the repository and enter the directory:
 
 ```bash
-- git clone https://github.com/krko1mrko/wro2026-fe  
-- cd wro2026-fe/code
+git clone https://github.com/krko1mrko/wro2026-fe  
+cd wro2026-fe/code
 ```
 
 2. Build the project:
 
 ```bash
-- g++ *.cpp -fpermissive 'pkg-config --cflags --libs opencv4' -lOpenCL -O3 -o main
+g++ *.cpp -fpermissive 'pkg-config --cflags --libs opencv4' -lOpenCL -O3 -o main
 ```
 
 3. Ensure all dependencies are properly installed and linked.
