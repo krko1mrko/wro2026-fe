@@ -38,7 +38,7 @@ The module ensures synchronized and structured data delivery to higher-level com
 
 The localization system determines the position and orientation of the robot within the map.
 
-The main algorithm used is ICP (Iterative Closest Point), which aligns LiDAR scans with a pre-generated reference map. The IMU provides an initial estimate of the transformation to improve convergence speed.
+The main algorithm used is ICP (Iterative Closest Point), which aligns LiDAR scans with a pre-generated reference map. The odometry provides an initial estimate of the transformation to improve convergence speed.
 
 To ensure real-time performance:
 - A quad tree data structure is used for efficient spatial indexing  
@@ -57,17 +57,17 @@ Two planning strategies are implemented:
 - Open Challenge pathfinding  
 - Obstacle avoidance pathfinding  
 
-The planner uses the robot’s current position and environmental data to generate a path that balances efficiency and safety.
+The planner uses the robot’s current position and environmental data to generate a path using Hybrid A* algorithm. It avoides obsticles while generating one of the shortest paths possible given the robot dynamics.
 
 ---
 
 ### 4. Obstacle Detection and Avoidance Module
 
-This module processes LiDAR data to detect dynamic obstacles.
+This module processes LiDAR data and camera reading to detect dynamic obstacles and avoid them while following the signal rules.
 
 Steps include:
-- Detection of obstacles from point cloud data  
-- Classification of detected objects  
+- Detection of obstacles from point cloud data and camera readings
+- Classification of detected objects
 - Modification of trajectory to avoid collisions  
 
 This module ensures safe navigation during the obstacle challenge.
@@ -76,27 +76,27 @@ This module ensures safe navigation during the obstacle challenge.
 
 ### 5. Control Module
 
-The control module converts planned trajectories into actuator commands.
+The control module converts planned trajectories into actuator commands. It uses a Stanley controller with a predictive element for mitigation of system response time.
 
 Responsibilities include:
-- Motor speed control  
-- Steering angle control  
+- Motor speed control
+- Steering angle control
 - Real-time corrections based on feedback  
 
-This module communicates directly with the microcontroller for execution.
+This module communicates directly with the microcontroller for execution and operates on a separate thread for continious updating.
 
 ---
 
 ## Hardware and Software Integration
 
-The software is tightly coupled with the robot’s electromechanical system.
+The software is tightly coupled with the robot’s electromechanical system. System parameters are updated in software to match the hardware.
 
 ### Main Components
 
 - Main processor: Intel N150 (runs high-level algorithms)  
 - Microcontroller: STM32 (handles real-time control)  
 - Drive motor: BLDC motor with gearbox  
-- Steering actuator: servo motor  
+- Steering actuator: serial servo motor  
 
 ### Interaction
 
